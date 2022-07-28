@@ -206,14 +206,12 @@ public class HelloApplication extends Application {
             }
             else if(i != TS[CT]){
                 String subBuff[][] = new String[file.size()+1][2];
-                subBuff[0][0] = titles.get(TS[CT]); // "Time"
-                subBuff[0][1] = titles.get(i);      // "Y-Value"
-
+                subBuff[0][0] = "Time"; // "Time"
+                subBuff[0][1] = "Y-Value";      // "Y-Value"
+                //System.out.println(TS[CT]);
                 for(int j = 0; j < file.size();j++){
-                    //Double.toString((Double.parseDouble(titles.get(TS[CT])) + TI[CT])*unit.toString(); // "Time"
-                    subBuff[j+1][0] = Double.toString( (Double.parseDouble("1") + TI[CT]) * unit );
+                    subBuff[j+1][0] = Double.toString( (Double.parseDouble(file.get(j).get(TS[CT])) + TI[CT]) * unit );
                     subBuff[j+1][1] = (file.get(j).get(i));
-
                 }
 
                 saveTSV("C:\\Users\\owens\\PycharmProjects\\DSP_File_Parsing\\Out_Data",subBuff,name, titles.get(i));
